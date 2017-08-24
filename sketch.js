@@ -9,6 +9,8 @@ const ROWS = 4
 const start = MARGIN + (CRYSTAL_SIZE / 2)
 const gridBox = CRYSTAL_SIZE + PADDING
 
+let PALETTE = []
+
 
 function setup () {
   const totalX = start + (gridBox * COLUMNS)
@@ -33,6 +35,5 @@ function draw () {
       drawCrystal(posX, posY)
     }
   }
-
 } 
 

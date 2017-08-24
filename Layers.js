@@ -10,7 +10,7 @@ const setState = (state) => {
   state.numShapes = state.sides
   state.angle =  TWO_PI / state.numShapes
   state.singleStep = (state.crystalSize / 2) / state.stepsOut
-  state.layerColor = getRandomFromPalette()
+  state.layerColor = getRandomFromPalette(PALETTE)
   return state
 }
 
