@@ -1,5 +1,5 @@
 class Layer {
-  constructor (palette) {
+  constructor () {
     // console.log('new Layer with', arg)
     this.sides = SIDES 
     this.layerColor = null
@@ -10,7 +10,7 @@ class Layer {
     this.thinStroke = 1
     this.thickStroke = 3
 
-    this.layerColor = getRandomFromPalette()
+    this.layerColor = getRandomFromPalette(PALETTE)
     rectMode(CENTER)
   }
 }

@@ -3,9 +3,9 @@ function randomSelectTwo () {
   return rando > 1 ? true : false
 }
 
-function getRandomFromPalette () {
-  const rando = floor(random(0, PALETTE.length))
-  return PALETTE[rando]
+function getRandomFromPalette (palette) {
+  const rando = floor(random(0, palette.length))
+  return palette[rando]
 }
 
 function hexagon (posX, posY, radius) {                     
