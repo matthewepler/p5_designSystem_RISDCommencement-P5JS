@@ -47,45 +47,54 @@ function saveSVG() {
 const layerConstructors = [
   {
     name: 'Centered Shape',
-    init: () => new CenteredShape(),
+    render: () => centeredShape(setState(state)).render(),
     weight: 0.3
   },
   {
     name: 'Outline Shape',
-    init: () => new OutlineShape(),
+    render: () => outlineShape(setState(state)).render(),
     weight: 0.3
   },
   {
     name: 'Stepped Hexagons',
-    init: () => new SteppedHexagons(),
+    render: () => steppedHexagons(setState(state)).render(),
     weight: 0.8
   },
   {
     name: 'Circles',
-    init: () => new Circles(),
+    render: () => circles(setState(state)).render(),
     weight: 0.7
   },
   {
     name: 'Simple Lines',
-    init: () => new SimpleLines(),
+    render: () => simpleLines(setState(state)).render(),
     weight: 0.3
   },
   {
     name: 'Dotted Lines',
-    init: () => new DottedLines(),
+    render: () => dottedLines(setState(state)).render(),
     weight: 0.5
   },
   {
     name: 'Ring of Shapes',
-    init: () => new RingOfShapes(),
+    render: () => ringOfShapes(setState(state)).render(),
     weight: 0.3
   },
   {
     name: 'Test Lines',
-    init: () => new TestLines({
-      lines: true,
-      circle: true
-    }),
+    render: () => testLines({...setState(state), lines: true, circle: true}).render(),
     weight: 1
   }
 ]
+
+const drawCrystal = (posX, posY) => {
+  push()
+  translate(posX, posY)
+  layerConstructors.forEach(layer => {
+    let picker = random(0, 1)
+    if (picker > layer.weight) {
+      layer.render()
+    }
+  })
+  pop()
+}
